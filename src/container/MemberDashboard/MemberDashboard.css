@@ -1,0 +1,79 @@
+.section-title {
+    margin-left: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+}
+
+.add {
+    padding: 12px 18px;
+    border: none;
+    background: #2196F3;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    color: white;
+    font-weight: bold;
+    outline: none;
+    margin-top: 10px;
+    margin-bottom: 1cm;
+    margin-left: 4.5cm;
+}
+
+.remove {
+    padding: 12px 18px;
+    background: maroon;
+    color: white;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.remove:hover, .update:hover {
+    cursor: pointer;
+}
+
+.update {
+    padding: 12px 18px;
+    background: green;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    margin-top: 10px;
+}
+
+#title {
+    text-align: center;
+    font-family: arial, sans-serif;
+  }
+  
+#table_members {
+    text-align: center;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    border: 3px solid #ddd;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+    border: none;
+}
+
+#table_members td, th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#table_members tr:nth-child(even){background-color: #f2f2f2;}
+
+#table_members tr:hover {background-color: #ddd;}
+
+#table_members th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #2196F3;
+    color: white;
+}
+

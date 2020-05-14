@@ -1,0 +1,48 @@
+.form-login {
+    box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.5);
+    width: 300px;
+    padding: 10px;
+    margin-top: 100px;
+    margin-left: 500px;
+    margin-bottom: 50px;
+    border-radius: 4px;
+}
+
+.form-login label {
+    display: black;
+    font-size: 14px;
+    color: darkgray;
+    font-weight: bold;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.form-login input {
+    outline: none;
+    border: 1px solid darkgray;
+    padding: 12px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 12px;
+    color: darkgray;
+}
+
+.btn-submit {
+    padding: 10px;
+    color: white;
+    background-color: dodgerblue;
+    outline: none;
+    border: 0ch;
+    width: 100%;
+}
+
+.jdl-logo {
+    width: 20%;
+    height: 10%;
+    margin-top: 0cm;
+    margin-left: 3.2cm;
+    margin-bottom: 0.5cm;
+    position: center;
+}

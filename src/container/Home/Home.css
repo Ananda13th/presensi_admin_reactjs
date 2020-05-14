@@ -1,0 +1,50 @@
+.navigation {
+    background: #2196F3;
+    padding: 30px;
+}
+
+.navigation a {
+    padding: 10px 40px;
+    margin: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+    background: #2196F3;
+    border-radius: 4px;
+    height: 100%;
+    border-color: white;
+}
+
+.sidenav {
+    height: 100%; /* Full-height: remove this if you want "auto" height */
+    width: 160px; /* Set the width of the sidebar */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: #2196F3; /* Black */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 20px;
+  }
+  
+  /* The navigation menu links */
+  .sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: white;
+    display: block;
+  }
+  
+  /* When you mouse over the navigation links, change their color */
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+
+  .jdl-logo {
+      width: 2%;
+      height: 2%;
+      margin-top: 0cm;
+      margin-bottom: 0cm;
+      position: relative;
+  }
