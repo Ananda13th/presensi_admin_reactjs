@@ -38,9 +38,8 @@ class OverrideDashboard extends Component {
         getOverrideList().then(function(res) {
             if(res.data.error_code === "00") {
                 component.setState ({
-                    dataOverrideNew : res.data.override_req_list
+                    item: res.data.override_req_list
                 })
-                console.log("Value : ", component.state.dataOverrideNew);
             }
             else if(res.data.error_code === "401") {
                 window.alert("Please Login First!");

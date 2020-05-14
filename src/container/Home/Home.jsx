@@ -51,11 +51,7 @@ class Home extends Component {
                         }
                     </div>
                     <Route path="/" exact component={routeProps => <Login {...routeProps} bool={(value)=>this.refreshComponent(value)}/>}/>          
-                    <Route path="/member-list" component={routeProps => <MemberDashboard {...routeProps}/>}/>             
-                    <Route path="/member-list" component={routeProps => <MemberDashboard {...routeProps}/>}/>             
-                    <Route path="/member-list" component={routeProps => <MemberDashboard {...routeProps}/>}/>             
-                    <Route path="/member-list" component={routeProps => <MemberDashboard {...routeProps}/>}/>             
-                    <Route path="/member-list" component={routeProps => <MemberDashboard {...routeProps}/>}/>             
+                    <Route path="/member-list" component={routeProps => <MemberDashboard {...routeProps}/>}/>                         
                     <Route path="/override-list" component={OverrideDashboard}/>
                     <Route path="/reset-list" component={ResetDashboard}/>
                 </Fragment>
