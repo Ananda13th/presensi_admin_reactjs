@@ -1,10 +1,12 @@
-import React, { Fragment } from 'react'
-import './ResetDashboard.css'
-import Axios from 'axios'
-import { Component } from 'react'
+import React, { Fragment, Component } from 'react'
 import UpdatePopup from '../UpdatePopup/UpdatePopup'
+//CSS
+import './ResetDashboard.css'
+//Service
+import {getResetList} from '../../service';
+//Icon
 import { BsPencilSquare } from 'react-icons/bs';
-import URL from '../../string_value';
+
 
 class ResetDashboard extends Component {
     state = {
@@ -18,7 +20,7 @@ class ResetDashboard extends Component {
     }
 
     componentDidMount() {
-        this.getResetList();
+        this.handleResetList();
     }
 
     tooglePopup = (value, member) => {
@@ -34,22 +36,22 @@ class ResetDashboard extends Component {
         })
     } 
 
-    getResetList = () => {
-        if(localStorage.getItem("user") !== null)
-        {
-            Axios.get(URL.URL_MOCK+'pass-req')
-            .then((res) => {
-                console.log(res); 
-                this.setState({
-                    item : res.data.reset_pass_list
+    handleResetList = () => {
+        const component = this;
+        getResetList().then(function(response) {
+            if(response.data.error_code === "00") {
+                component.setState({
+                    item : response.data.reset_pass_list
                 })
-            })
-        }
-        else {
-            window.alert("Please Login First!");
-            this.props.history.push("/");
-        }
+            }
+            else if(response.data.error_code === "401") {
+                window.alert("Silahkan Login Dahulu!");
+                component.props.history.push("/");
+            }
+        })
+
     }
+
 
     renderTableHeader() {
         return (

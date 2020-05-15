@@ -1,8 +1,11 @@
 import React, { Component, Fragment } from 'react';
-import '../MemberDashboard/MemberDashboard.css'
 import UpdatePopup from '../../container/UpdatePopup/UpdatePopup'
-import { BsFillPersonPlusFill, BsFillTrashFill, BsPencilSquare } from 'react-icons/bs';
+//CSS
+import '../MemberDashboard/MemberDashboard.css'
+//Service
 import {getMemberList, deleteMember} from '../../service';
+//Icon
+import { BsFillPersonPlusFill, BsFillTrashFill, BsPencilSquare } from 'react-icons/bs';
 
 
 class MemberDashboard extends Component {
@@ -37,7 +40,7 @@ class MemberDashboard extends Component {
                     member : response.data.user_list
                 })
             else if(response.data.error_code === "401"){
-                window.alert("Please Login First!");
+                window.alert("Silahkan Login Dahulu!");
                 component.props.history.push("/");
             }
         });

@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from 'react';
+//CSS
 import './OverrideDashboard.css'
-import Axios from 'axios';
-import URL from '../../string_value'
-import {getOverrideList} from '../../service'
+//Service
+import {getOverrideList, rejectOverride, acceptOverride} from '../../service'
 //Icon
 import { AiFillCloseCircle, AiFillCheckCircle} from 'react-icons/ai';
 
@@ -42,45 +42,30 @@ class OverrideDashboard extends Component {
                 })
             }
             else if(res.data.error_code === "401") {
-                window.alert("Please Login First!");
+                window.alert("Silahkan Login Dahulu!");
                 component.props.history.push("/");
             }   
         })
     }
 
-    getOverrideList = () => {
-        if(localStorage.getItem("user") !== null)
-        {
-            Axios.get(URL.URL_MOCK+'override')
-            .then((res) => {
-                console.log(res); 
-                this.setState({
-                    item : res.data.override_req_list
-                })
-            })
-        }
-        else{
-            window.alert("Please Login First!");
-            this.props.history.push("/");
-        }
-      
+    handleRejectOverride = (overrideid) => {
+        let component = this;
+        rejectOverride(overrideid).then(function(response) {
+            if(response.data.error_code === "00") {
+                window.alert(response.data.error_message);
+                component.handleOverridelist();
+            }
+        });
     }
 
-    rejectOverride = (overrideid) => {
-        Axios.delete(URL.URL_MOCK+`override/${overrideid}`).then((res)=> {
-            console.log(res);
-            this.getOverrideList();
-        })
-    }
-
-    acceptOverride = (data) => {
-        data.status = "Diterima";
-        Axios.put(URL.URL_MOCK+`override/${data.id}`, data).then((res) => {
-            console.log(res);
-            this.getOverrideList();
-        }, (err) => {
-            console.log(err);
-        })
+    handleAcceptOverride = (override) => {
+        let component = this;
+        acceptOverride(override).then(function(response) {
+            if(response.data.error_code === "00") {
+                window.alert(response.data.error_message);
+                component.handleOverridelist();
+            }
+        });
     }
 
     renderTableHeader() {
@@ -104,8 +89,8 @@ class OverrideDashboard extends Component {
                     <td>{item.dates}</td>
                     <td>{item.times}</td>
                     <td>
-                        <button className="update" onClick={()=> this.acceptOverride(item)}><AiFillCheckCircle color="white" size="0.4cm"/> Terima</button>
-                        <button className="remove" onClick={()=> this.rejectOverride(item.id)}><AiFillCloseCircle color="white" size="0.4cm"/> Tolak</button>
+                        <button className="update" onClick={()=> this.handleAcceptOverride(item)}><AiFillCheckCircle color="white" size="0.4cm"/> Terima</button>
+                        <button className="remove" onClick={()=> this.handleRejectOverride(item.id)}><AiFillCloseCircle color="white" size="0.4cm"/> Tolak</button>
                     </td>
                 </tr>
             )
